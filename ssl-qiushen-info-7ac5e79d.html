@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球神直播 · 信息卡片介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            background-color: #f8f9fc;
+            color: #1f2a3a;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem 4rem;
+        }
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+        /* 主视觉区域 —— 极简留白卡片 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2rem 2.2rem;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.02), 0 8px 32px rgba(31, 42, 58, 0.04);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(211, 220, 230, 0.3);
+        }
+        .hero-badge {
+            display: inline-block;
+            background: #ebf0f8;
+            color: #2c3e50;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            border: 1px solid #dce3ed;
+        }
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b1a2b;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+        .hero-card h1 span {
+            font-weight: 400;
+            color: #3e5a7a;
+        }
+        .hero-sub {
+            font-size: 1rem;
+            color: #4a5b72;
+            max-width: 480px;
+            margin: 0.2rem auto 1.8rem;
+            border-top: 1px solid #e7ecf3;
+            padding-top: 1rem;
+        }
+        .hero-sub a {
+            color: #1f3a6b;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc9dc;
+            font-weight: 500;
+            transition: border-color 0.2s;
+        }
+        .hero-sub a:hover {
+            border-bottom-color: #1f3a6b;
+        }
+        /* 信息卡片通用 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf2f9;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 20px rgba(31, 42, 58, 0.04);
+        }
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #162433;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+        .card-title .icon {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            background: #eef3fa;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #2a4a6e;
+        }
+        .card p {
+            color: #2f405a;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        .card ul {
+            list-style: none;
+            margin-top: 0.4rem;
+        }
+        .card li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #2f405a;
+            font-size: 0.92rem;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.1rem;
+            color: #546e8a;
+            font-weight: 700;
+        }
+        .card .inline-link {
+            color: #1d3b60;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd7e8;
+            font-weight: 500;
+            transition: border-color 0.15s;
+        }
+        .card .inline-link:hover {
+            border-bottom-color: #1d3b60;
+        }
+        .faq-note {
+            background: #f3f6fd;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin-top: 0.2rem;
+            border: 1px solid #e0e8f2;
+        }
+        .faq-note h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #2f4b6e;
+            margin-bottom: 0.8rem;
+        }
+        .faq-note p {
+            color: #2b405c;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+        .faq-note p:last-of-type {
+            margin-bottom: 0;
+        }
+        .footer-meta {
+            margin-top: 2.8rem;
+            font-size: 0.8rem;
+            color: #6c7e97;
+            text-align: center;
+            border-top: 1px solid #e3eaf3;
+            padding-top: 1.8rem;
+            letter-spacing: 0.01em;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e2e9f2;
+            margin: 1.2rem 0;
+            opacity: 0.6;
+        }
+        @media (max-width: 480px) {
+            body { padding: 1.2rem 0.8rem 3rem; }
+            .hero-card { padding: 2rem 1.2rem 1.8rem; }
+            .hero-card h1 { font-size: 1.9rem; }
+            .card { padding: 1.4rem 1.2rem 1.6rem; }
+            .faq-note { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 主视觉卡片 -->
+    <div class="hero-card">
+        <div class="hero-badge">信息卡片 · 整理说明</div>
+        <h1>球神直播<span> · 日常对照</span></h1>
+        <div class="hero-sub">
+            从查询、对照到延伸阅读 —— 一个可以反复参考的页面。<br>
+            关于 <a href="https://ssl-qiushen.com">球神直播</a> 的基本用途、适合场景与常见问题摘要。
+        </div>
+    </div>
+
+    <!-- 信息卡片网格 -->
+    <div class="card-grid">
+        <!-- 用途卡片 1: 日常查询 -->
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">📋</span> 日常查询 · 对照表
+            </div>
+            <p>如果你需要快速确认某个术语、活动时段或基础功能，这里整理了几个经常被问到的方向：</p>
+            <ul>
+                <li><strong>时段对照</strong> – 不同栏目的常规更新节奏与常见时段参考</li>
+                <li><strong>功能索引</strong> – 模块划分、账户关联及基础操作入口</li>
+                <li><strong>内容标签</strong> – 常见分类与关键词释义</li>
+            </ul>
+            <p style="margin-top: 0.6rem;">更多条目可结合 <a href="https://ssl-qiushen.com" class="inline-link">球神直播</a> 页面内导航进一步对照。</p>
+        </div>
+
+        <!-- 用途卡片 2: 延伸阅读与场景 -->
+        <div class="card">
+            <div class="card-title">
+                <span class="icon">🔍</span> 延伸阅读 · 场景参考
+            </div>
+            <p>以下是从不同使用者角度整理的常见场景，便于快速定位自己可能关注的内容：</p>
+            <ul>
+                <li><strong>信息核对</strong> – 对某个活动或功能名称有印象，想快速找到对应说明</li>
+                <li><strong>补充了解</strong> – 已在使用基础功能，希望查看周边说明或关联介绍</li>
+                <li><strong>常规浏览</strong> – 作为日常阅读的一部分，随手翻阅条目式内容</li>
+            </ul>
+            <p style="margin-top: 0.5rem;">这些场景都可以在 <a href="https://ssl-qiushen.com" class="inline-link">球神直播</a> 找到对应的模块与导航。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 自然链接段落 (合并为保留卡片风格) -->
+    <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-title">
+            <span class="icon">👤</span> 适合人群
+        </div>
+        <p>这个页面适合下面几类人作为日常参考——</p>
+        <ul>
+            <li><strong>新接触者</strong>：想了解基本功能分区与常用表达，快速建立框架</li>
+            <li><strong>间歇使用者</strong>：偶尔回来查询某个细节或更新条目，不需要从头摸索</li>
+            <li><strong>延伸阅读爱好者</strong>：喜欢条目式、卡片化的信息结构，便于横向对照</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">不论属于哪一类，<a href="https://ssl-qiushen.com" class="inline-link">球神直播</a> 的内容结构都可以作为你日常查询的起点或参照。你也可以根据自己的使用频率，把它加入书签。</p>
+    </div>
+
+    <!-- FAQ 摘要卡片 (自然问答风格) -->
+    <div class="faq-note">
+        <h3>📌 常见问答摘要</h3>
+        <p><strong>Q：这个介绍页面会频繁更新吗？</strong><br>A：目前作为静态说明页，内容相对稳定，后续若有重要变化会调整卡片条目。</p>
+        <p><strong>Q：我想进一步了解某个功能，去哪里看？</strong><br>A：建议直接访问 <a href="https://ssl-qiushen.com" class="inline-link" style="border-bottom:1px solid #b0c3db;">球神直播</a> 的导航区，通常能找到对应的分类或说明。</p>
+        <p><strong>Q：卡片里的条目都是最新的吗？</strong><br>A：整理时参考了常用信息，但具体运营细节以 <a href="https://ssl-qiushen.com" class="inline-link" style="border-bottom:1px solid #b0c3db;">球神直播</a> 实际页面为准。</p>
+        <hr>
+        <p style="font-size:0.85rem;">摘要基于常见问题整理，完整版本请参阅对应页面。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-meta">
+        信息卡片 · 内容整理 · 可反复参考<br>
+        <span style="opacity: 0.65;">关于 <a href="https://ssl-qiushen.com" style="color:#2b4b72;text-decoration:none;border-bottom:1px solid #bccfe0;">球神直播</a> 的介绍与索引</span>
+    </div>
+</div>
+</body>
+</html>
