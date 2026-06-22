@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500彩票网官方 – 合规彩票资讯与服务平台</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f6fafc;
+      color: #1f2b38;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(145deg, #d8f0f5 0%, #b5dfe8 100%);
+      padding: 3.5rem 0 4rem;
+      border-bottom: 3px solid #56b4c4;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b3b44;
+      margin-bottom: 1rem;
+      max-width: 780px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #1f4b55;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .hero .sub {
+      font-size: 0.95rem;
+      color: #2e5f6b;
+      border-left: 4px solid #3f98ab;
+      padding-left: 1rem;
+      background: rgba(255, 255, 255, 0.35);
+      display: inline-block;
+      border-radius: 0 8px 8px 0;
+      padding: 0.5rem 1rem 0.5rem 0.9rem;
+    }
+
+    /* 卡片网格 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      padding: 3rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 6px 14px rgba(20, 100, 120, 0.06);
+      transition: all 0.2s;
+      border: 1px solid #e0f0f4;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px rgba(30, 120, 140, 0.08);
+      border-color: #a0cedb;
+    }
+
+    .card .icon {
+      font-size: 2.0rem;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .card h3 {
+      color: #0f4d5a;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: #2b4f5b;
+      font-size: 0.95rem;
+    }
+
+    /* 说明区 */
+    .info-section {
+      background: #edf7fa;
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      margin: 1rem 0 2.5rem;
+    }
+
+    .info-section h2 {
+      font-size: 1.8rem;
+      color: #07424e;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-section p {
+      color: #1b4652;
+      font-size: 1.04rem;
+      max-width: 820px;
+    }
+
+    .info-section strong {
+      color: #0e6f81;
+    }
+
+    /* faq摘要 */
+    .faq-preview {
+      margin: 2.5rem 0 3.5rem;
+    }
+
+    .faq-preview h2 {
+      font-size: 1.8rem;
+      color: #07424e;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 18px;
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid #7ac1d1;
+      box-shadow: 0 2px 6px rgba(30, 90, 110, 0.04);
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #094d5b;
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
+
+    .faq-item .a {
+      color: #2f5e6b;
+      font-size: 0.96rem;
+    }
+
+    .faq-cta {
+      text-align: right;
+      margin-top: 0.5rem;
+    }
+
+    .faq-cta a {
+      color: #1b7e90;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px dotted #8ac3d1;
+    }
+
+    .faq-cta a:hover {
+      color: #06424f;
+      border-bottom-color: #06424f;
+    }
+
+    /* 底部 */
+    .footer {
+      background: #d0e9f0;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      border-top: 1px solid #a6d0db;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer p {
+      color: #1d4f5c;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #075b6b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer .stamp {
+      background: #ffffffb3;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .grid-cards {
+        gap: 1.2rem;
+      }
+      .info-section {
+        padding: 1.8rem 1.2rem;
+      }
+      .faq-item {
+        padding: 1rem 1.2rem;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <h1>彩票资讯 · 理性参考 · 值得信赖</h1>
+      <p>
+        <a href="https://cns-ssl-500.com" style="color:#023b47; font-weight: 600; text-decoration: underline 2px #3794a8; text-underline-offset: 4px;">500彩票网官方</a> 
+        持续提供合规、透明的彩票行业信息、玩法说明及数据参考。不引导购买，只做客观呈现。
+      </p>
+      <div class="sub">
+        ⚖️ 理性购彩 · 量力而行 · 娱乐为先
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- 优势卡片 -->
+    <div class="grid-cards">
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>信息透明</h3>
+        <p>开奖数字、玩法规则、历史趋势均可查阅，帮助您更全面地理解彩票机制。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧭</div>
+        <h3>结构清晰</h3>
+        <p>分类展示乐透、数字彩、竞猜等主流类型，查找方便，逻辑一目了然。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔒</div>
+        <h3>稳定安全</h3>
+        <p>采用标准安全协议，注重数据保护，打造安心的浏览环境。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📱</div>
+        <h3>移动优先</h3>
+        <p>页面适配手机与平板，无论何时都能快速获取所需内容。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 -->
+    <div class="info-section">
+      <h2>关于平台定位</h2>
+      <p>
+        <strong>500彩票网官方</strong> 所呈现的信息均来自公开合规渠道，不设定任何“必中”“稳赚”等不实暗示。 
+        我们相信，只有了解规则、保持冷静，才能享受彩票带来的趣味。平台提供开奖结果对照、彩种介绍、公益金用途说明等模块，
+        帮助用户建立更理性的认知。本页面及关联内容均不构成投资建议。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-preview">
+      <h2>❓ 常见疑问 · 简要</h2>
+      <div class="faq-item">
+        <div class="q">Q: 是否可以通过平台直接购买彩票？</div>
+        <div class="a">A: 本站为信息服务与展示平台，不提供在线销售服务。请通过当地合规实体店或授权渠道购买。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Q: 开奖数据更新频率如何？</div>
+        <div class="a">A: 通常在官方公布后尽快同步，具体时效可参考各彩种页面的标注。遇系统维护可能有短时延迟。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Q: 如何辨别信息的准确性？</div>
+        <div class="a">A: 所有数据均对照国家彩票发行机构公告，若有疑问可交叉核对。欢迎通过页面底部的联系渠道反馈。</div>
+      </div>
+      <div class="faq-cta">
+        <a href="https://cns-ssl-500.com">500彩票网官方</a>
+      </div>
+    </div>
+
+    <!-- 底部链接与说明 -->
+    <div style="background: #e1f2f7; border-radius: 24px; padding: 1.8rem 2rem; margin-bottom: 2rem;">
+      <p style="color: #144b58; font-size: 1rem; font-weight: 500; margin-bottom: 0.8rem;">📌 提示</p>
+      <p style="color: #1f5260;">
+        彩票并非投资，请量力而行。本页面所有内容仅供资讯参考，不构成任何形式的承诺。
+        可通过 <a href="https://cns-ssl-500.com" style="color: #0b697d; font-weight: 600;">500彩票网官方</a> 
+        获取更完整的栏目与数据。健康购彩，理性相伴。
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>
+        © 2025 · 内容仅供资讯参考 · 
+        <a href="https://cns-ssl-500.com">500彩票网官方</a>
+      </p>
+      <span class="stamp">🎲 理性购彩 · 娱乐至上</span>
+    </div>
+  </footer>
+</body>
+</html>
