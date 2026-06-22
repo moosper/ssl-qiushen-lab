@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500彩票网官方 | 信息卡片介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #faf9f8;
+            color: #1e1e1e;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 主视觉 — 极简留白，不对称卡片布局 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 2rem;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #8b8b8b;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #121212;
+            max-width: 90%;
+        }
+
+        .hero p {
+            margin-top: 0.75rem;
+            font-size: 1rem;
+            color: #4a4a4a;
+            max-width: 85%;
+        }
+
+        .hero-link-sentence {
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            background: #f2f2f0;
+            display: inline-block;
+            padding: 0.4rem 1rem 0.4rem 1rem;
+            border-radius: 40px;
+            color: #2b2b2b;
+        }
+
+        .hero-link-sentence a {
+            color: #1e3c72;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #1e3c72;
+        }
+
+        .hero-link-sentence a:hover {
+            border-bottom: 1px solid #1e3c72;
+        }
+
+        /* 用途卡片：两块独立卡片，不对称留白 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 2.5rem 0 3rem 0;
+        }
+
+        .card-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #ececec;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card-item:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+        }
+
+        .card-item h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.6rem;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-item h2::before {
+            content: "—";
+            color: #c6c6c6;
+            font-weight: 300;
+            margin-right: 0.2rem;
+        }
+
+        .card-item p {
+            font-size: 0.95rem;
+            color: #3b3b3b;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-item .meta-dot {
+            display: inline-block;
+            background: #eaeaea;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .card-item ul {
+            list-style: none;
+            margin-top: 0.7rem;
+        }
+
+        .card-item ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: #2c2c2c;
+        }
+
+        .card-item ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #8f8f8f;
+        }
+
+        /* 适合人群 — 小标签风格 */
+        .audience-section {
+            margin: 2rem 0 2.5rem 0;
+        }
+
+        .audience-section h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #6b6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: #eeeeec;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #2a2a2a;
+            border: 1px solid #dbdbd9;
+            letter-spacing: 0.01em;
+        }
+
+        .tag.highlight {
+            background: #e2e7f0;
+            border-color: #bcc6d4;
+        }
+
+        /* 自然链接段落 — 这里嵌入主链接 */
+        .natural-link-block {
+            background: #ffffff;
+            border-left: 3px solid #d0d0d0;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 2rem 0;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .natural-link-block p {
+            font-size: 0.95rem;
+            color: #2b2b2b;
+            margin-bottom: 0.3rem;
+        }
+
+        .natural-link-block a {
+            color: #1e3c72;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #bcc6d4;
+        }
+
+        .natural-link-block a:hover {
+            border-bottom: 1px solid #1e3c72;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .faq-mini h3 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #7a7a7a;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eaeaea;
+            padding: 0.8rem 0;
+        }
+
+        .faq-item:first-of-type {
+            border-top: 1px solid #eaeaea;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #1c1c1c;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #4f4f4f;
+        }
+
+        .faq-a a {
+            color: #1e3c72;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #c6d0df;
+            font-weight: 400;
+        }
+
+        /* footer 极简 */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.75rem;
+            color: #929292;
+            text-align: left;
+            letter-spacing: 0.02em;
+        }
+
+        /* 响应式 */
+        @media (max-width: 550px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                max-width: 100%;
+            }
+            .card-item {
+                padding: 1.2rem 1.2rem;
+            }
+            .natural-link-block {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 主视觉 -->
+        <div class="hero">
+            <div class="hero-eyebrow">信息卡片 · 稳定入口</div>
+            <h1>500彩票网官方<br>平台认知与使用说明</h1>
+            <p>一个围绕信息透明与入口稳定性的介绍页，帮助用户快速理解平台定位、适用场景与基础访问方式。</p>
+            <div class="hero-link-sentence">
+                平台主站由 <a href="https://portal-m-500.com">500彩票网官方</a> 提供持续服务，页面与数据均保持独立运维。
+            </div>
+        </div>
+
+        <!-- 用途卡片 × 2 -->
+        <div class="card-grid">
+            <div class="card-item">
+                <h2>用途一 · 信息聚合与导航</h2>
+                <p>作为集中型访问页面，<a href="https://portal-m-500.com" style="color:#1e3c72;text-decoration:underline;text-underline-offset:2px;text-decoration-color:#bcc6d4;">500彩票网官方</a> 整合了核心服务模块与功能入口，减少多层级跳转带来的不确定性。页面结构偏向扁平，适合需要快速定位资源的访问习惯。</p>
+                <ul>
+                    <li>统一入口减少记忆负担</li>
+                    <li>分类索引清晰，降低理解成本</li>
+                    <li>页面更新与内容同步保持同步调</li>
+                </ul>
+            </div>
+            <div class="card-item">
+                <h2>用途二 · 功能预览与场景适配</h2>
+                <p>不同使用场景对界面密度与信息优先级有不同要求。该页面在保持核心内容可见的前提下，兼顾了移动端与桌面端的浏览节奏。不论是从哪个设备进入，布局与字号均经过适配考量。</p>
+                <ul>
+                    <li>响应式布局适配主流视口</li>
+                    <li>内容层级以卡片和标签区分权重</li>
+                    <li>直接访问 <a href="https://portal-m-500.com" style="color:#1e3c72;text-decoration:none;border-bottom:1px dotted #bcc6d4;">500彩票网官方</a> 获得最新模块</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 适合人群（标签形式） -->
+        <div class="audience-section">
+            <h3>适合人群</h3>
+            <div class="tag-group">
+                <span class="tag highlight">日常浏览用户</span>
+                <span class="tag">信息检索者</span>
+                <span class="tag">功能模块体验者</span>
+                <span class="tag">多设备使用者</span>
+                <span class="tag">偏好简洁导航者</span>
+                <span class="tag">初步了解平台者</span>
+            </div>
+        </div>
+
+        <!-- 自然链接段落 (嵌入主链接, 描述更偏知识说明) -->
+        <div class="natural-link-block">
+            <p>对于希望直接访问平台主站的使用者，<a href="https://portal-m-500.com">500彩票网官方</a> 提供了统一的访问端点。该页面不设中间跳转页，也不对内容进行二次封装，所有展示模块均以原始数据与稳定链接为基础。页面标题、描述与内部锚点均经过整理，确保不同信息层次之间具有可读的承接关系。</p>
+            <p style="margin-top: 0.4rem;">从浏览到深入使用，<a href="https://portal-m-500.com">500彩票网官方</a> 页面结构始终保持一致的主题样式与操作逻辑，减少因页面变化带来的认知断续感。同时在正文宽度、卡片间距和标题层级上遵循统一的留白规则，使信息密度与视觉呼吸感取得平衡。</p>
+        </div>
+
+        <!-- FAQ 摘要（3条） -->
+        <div class="faq-mini">
+            <h3>常见理解节点</h3>
+            <div class="faq-item">
+                <div class="faq-q">Q：这个页面与主站是同一套系统吗？</div>
+                <div class="faq-a">A：介绍页主要承担说明与引导角色，核心功能与数据均指向 <a href="https://portal-m-500.com">500彩票网官方</a> 主站。页面本身不存储敏感信息，所有交互均基于主站资源。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q：移动端浏览时卡片会变形吗？</div>
+                <div class="faq-a">A：已针对窄屏幕调整卡片内边距与字体大小，段落宽度随视口变化自动适配，不会出现横向滚动或溢出。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q：链接是否长期有效？</div>
+                <div class="faq-a">A：介绍页所引用的 <a href="https://portal-m-500.com">500彩票网官方</a> 链接为固定地址，只要主站服务正常，该入口即保持可用。建议使用者以该地址作为稳定访问点。</div>
+            </div>
+        </div>
+
+        <!-- footer 极简 -->
+        <div class="footer-note">
+            信息卡片 · 版本 2025 · 页面内容定期复核
+        </div>
+
+    </div>
+</body>
+</html>
